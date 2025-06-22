@@ -122,6 +122,32 @@
         .profile-image:hover {
             transform: scale(1.05);
         }
+
+        /* Welcome Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes grow {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .animate-fade-in-delay {
+            animation: fadeIn 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+
+        .animate-grow {
+            animation: grow 1s ease-out 0.3s forwards;
+            transform-origin: left;
+            transform: scaleX(0);
+        }
         
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -142,12 +168,23 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Welcome Overlay -->
+    <div id="welcome-overlay" class="fixed inset-0 bg-gray-900 dark:bg-gray-950 z-50 flex items-center justify-center transition-opacity duration-1000">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in">Welcome</h1>
+            <div class="w-24 h-1 bg-primary-500 mx-auto mb-8 animate-grow"></div>
+            <p class="text-gray-300 animate-fade-in-delay">Vivek Seth</p>
+            <p class="text-gray-300 animate-fade-in-delay">AI/ML/Data Science Engineer</p>
+            <p class="text-gray-300 animate-fade-in-delay">M.Tech in IEOR (IIT Bombay)</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="fixed w-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md z-50 shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <a href="#home" class="text-xl font-bold text-primary-600 dark:text-primary-400">AI Engineer</a>
+                    <a href="#home" class="text-xl font-bold text-primary-600 dark:text-primary-400">Vivek Seth</a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">Home</a>
@@ -196,16 +233,16 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="md:w-1/2 mb-12 md:mb-0 hero-content">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary-600 dark:text-primary-400">Alex</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 dark:text-gray-300">AI/ML & Data Science Engineer</h2>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary-600 dark:text-primary-400">Vivek</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 dark:text-gray-300">AI/ML/Data Science Engineer</h2>
                     <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
-                        Building intelligent systems with data and code. Specializing in NLP, document extraction, generative AI, and scalable data pipelines.
+                        Building intelligent systems with data and code. Specializing in RAG, NLP, document extraction, generative AI, and scalable data pipelines.
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#contact" class="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition shadow-lg hover:shadow-xl">
                             Contact Me
                         </a>
-                        <a href="#" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 font-medium rounded-lg transition hover:bg-primary-50 dark:hover:bg-gray-800">
+                        <a href="https://drive.google.com/uc?export=download&id=1bNVhR8WzwsdqEDzqEd9G4lcttIu5RFg5" class="px-6 py-3 border border-primary-600 text-primary-600 dark:text-primary-400 dark:border-primary-400 font-medium rounded-lg transition hover:bg-primary-50 dark:hover:bg-gray-800" download>
                             Download Resume
                         </a>
                     </div>
@@ -213,7 +250,7 @@
                 <div class="md:w-1/2 flex justify-center hero-image">
                     <div class="relative">
                         <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 absolute -z-10 top-4 left-4 blur-xl opacity-30"></div>
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                        <img src="/1715362670328.jpeg" 
                              alt="Profile Image" 
                              class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover profile-image border-4 border-white dark:border-gray-800">
                     </div>
@@ -231,15 +268,16 @@
                 <div class="md:w-1/2 animate-entrance slide-up" style="animation-delay: 0.2s">
                     <h3 class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400">Who I Am</h3>
                     <p class="text-gray-600 dark:text-gray-300 mb-6">
-                        I'm an AI/ML Engineer with 5+ years of experience in designing and implementing machine learning solutions for real-world problems. 
-                        My passion lies in creating intelligent systems that extract meaningful insights from complex data.
+                        Hi, I'm Vivek Seth, a passionate AI/ML and Data Science Engineer with a Master's in Industrial Engineering and Operations Research from IIT Bombay. 
+                        Currently, I work at Wissen Technology, where I develop innovative solutions like ESG reporting tools, invoice extraction systems, and UNSPSC classification pipelines using advanced technologies such as Python, Streamlit, Azure OpenAI, and ChromaDB. My expertise spans NLP, computer vision, and optimization, with hands-on experience in TensorFlow, PyTorch, and LangChain.
                     </p>
                     <p class="text-gray-600 dark:text-gray-300 mb-6">
-                        Currently working at Wissen Technology in the Center of Excellence team, where I lead projects involving natural language processing, 
-                        document intelligence, and generative AI applications.
+                        My academic and self-driven projects, including autonomous aerial logistics optimization and intent recognition systems, reflect my ability to tackle complex challenges with data-driven approaches. 
+                        As a Teaching Assistant at IITB, I mentored over 100 students in machine learning and operations analysis, honing my leadership and communication skills.
                     </p>
                     <p class="text-gray-600 dark:text-gray-300">
-                        When I'm not coding, you can find me reading research papers, contributing to open-source projects, or mentoring aspiring data scientists.
+                        With a strong foundation in Python, SQL, and libraries like Pandas, NLTK, and OpenCV, I'm dedicated to creating impactful AI solutions. 
+                        Explore my portfolio to see how I blend technical expertise with practical innovation to drive results.
                     </p>
                 </div>
                 
@@ -247,37 +285,44 @@
                     <h3 class="text-2xl font-semibold mb-4 text-primary-600 dark:text-primary-400">Technical Skills</h3>
                     
                     <div class="mb-6">
-                        <h4 class="text-lg font-medium mb-3">Programming Languages</h4>
+                        <h4 class="text-lg font-medium mb-3">Languages & Others</h4>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Python</span>
                             <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">SQL</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">R</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">JavaScript</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">MS Office</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Power BI</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">RabbitMQ</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">AnyLogic</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">GitLab</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">LATEX</span>
                         </div>
                     </div>
                     
                     <div class="mb-6">
-                        <h4 class="text-lg font-medium mb-3">ML/DL Frameworks</h4>
+                        <h4 class="text-lg font-medium mb-3">Frameworks</h4>
                         <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">LangChain</span>
                             <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">TensorFlow</span>
                             <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">PyTorch</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Keras</span>
                             <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Scikit-learn</span>
                             <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">HuggingFace</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">LangChain</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Streamlit</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">FastAPI</span>
+
                         </div>
                     </div>
                     
                     <div class="mb-6">
-                        <h4 class="text-lg font-medium mb-3">Tools & Platforms</h4>
+                        <h4 class="text-lg font-medium mb-3">Libraries</h4>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Google Cloud</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">AWS</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Docker</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Kubernetes</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">FastAPI</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Power BI</span>
-                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Tableau</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NumPy</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Pandas</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">NLTK</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">OpenCV</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">SciPy</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Transformers</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Matplotlib</span>
+                            <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">Seaborn</span>
                         </div>
                     </div>
                     
@@ -286,16 +331,16 @@
                         <ul class="space-y-2">
                             <li class="flex items-start">
                                 <i class="fas fa-certificate text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-300">Google Cloud Professional ML Engineer</span>
+                                <span class="text-gray-600 dark:text-gray-300">Google Cloud Professional ML Engineer Certifications</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-certificate text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-300">AWS Certified Machine Learning - Specialty</span>
+                                <span class="text-gray-600 dark:text-gray-300">Power BI Masterclass issued by Froyo Technology</span>
                             </li>
-                            <li class="flex items-start">
+                            <!-- <li class="flex items-start">
                                 <i class="fas fa-certificate text-primary-600 dark:text-primary-400 mt-1 mr-2"></i>
                                 <span class="text-gray-600 dark:text-gray-300">TensorFlow Developer Certificate</span>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -660,6 +705,10 @@
                         <i class="fas fa-server text-4xl text-green-400 mb-2"></i>
                         <span class="text-sm">FastAPI</span>
                     </div>
+                    <div class="flex flex-col items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow w-24">
+                        <img src="https://www.vectorlogo.zone/logos/rabbitmq/rabbitmq-icon.svg" alt="RabbitMQ" class="h-10 mb-2">
+                        <span class="text-sm">RabbitMQ</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -684,28 +733,28 @@
                             <i class="fas fa-envelope text-primary-600 dark:text-primary-400 mt-1 mr-4"></i>
                             <div>
                                 <h4 class="font-medium">Email</h4>
-                                <a href="mailto:alex@aiengineer.com" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">alex@aiengineer.com</a>
+                                <a href="mailto:vivekseth7236@gmail.com" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">vivekseth7236@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fab fa-linkedin text-primary-600 dark:text-primary-400 mt-1 mr-4"></i>
                             <div>
                                 <h4 class="font-medium">LinkedIn</h4>
-                                <a href="https://linkedin.com/in/ai-engineer" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">linkedin.com/in/ai-engineer</a>
+                                <a href="https://www.linkedin.com/in/vivekseth/" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">linkedin.com/in/vivekseth/</a>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fab fa-github text-primary-600 dark:text-primary-400 mt-1 mr-4"></i>
                             <div>
                                 <h4 class="font-medium">GitHub</h4>
-                                <a href="https://github.com/ai-engineer" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">github.com/ai-engineer</a>
+                                <a href="https://github.com/vivek-seth" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition">github.com/vivek-seth</a>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-map-marker-alt text-primary-600 dark:text-primary-400 mt-1 mr-4"></i>
                             <div>
                                 <h4 class="font-medium">Location</h4>
-                                <p class="text-gray-600 dark:text-gray-300">San Francisco, CA</p>
+                                <p class="text-gray-600 dark:text-gray-300">Pune, Maharastra</p>
                             </div>
                         </div>
                     </div>
@@ -746,7 +795,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
-                    <a href="#home" class="text-xl font-bold text-white">AI Engineer</a>
+                    <a href="#home" class="text-xl font-bold text-white">AI/ML/Data Science Engineer</a>
                     <p class="mt-2">Building intelligent systems with data and code.</p>
                 </div>
                 <div class="flex space-x-6">
@@ -756,16 +805,16 @@
                     <a href="https://github.com/ai-engineer" target="_blank" class="text-gray-300 hover:text-white transition">
                         <i class="fab fa-github text-2xl"></i>
                     </a>
-                    <a href="https://twitter.com/ai_engineer" target="_blank" class="text-gray-300 hover:text-white transition">
+                    <a href="https://x.com/VivekSeth__" target="_blank" class="text-gray-300 hover:text-white transition">
                         <i class="fab fa-twitter text-2xl"></i>
                     </a>
-                    <a href="https://medium.com/@ai-engineer" target="_blank" class="text-gray-300 hover:text-white transition">
+                    <!-- <a href="https://medium.com/@ai-engineer" target="_blank" class="text-gray-300 hover:text-white transition">
                         <i class="fab fa-medium text-2xl"></i>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class="mt-8 pt-8 border-t border-gray-800 text-center">
-                <p>&copy; <span id="year"></span> AI Engineer Portfolio. All rights reserved.</p>
+                <p>&copy; <span id="year"></span> Vivek Seth(AI/ML/Data Science Engineer). All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -824,8 +873,18 @@
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
         
-        // Initial page load animations
+        // Welcome animation
         document.addEventListener('DOMContentLoaded', () => {
+            const welcomeOverlay = document.getElementById('welcome-overlay');
+            
+            // Show welcome message for 3 seconds then fade out
+            setTimeout(() => {
+                welcomeOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    welcomeOverlay.style.display = 'none';
+                }, 1000);
+            }, 3000);
+
             // Animate sections with delay
             const sections = document.querySelectorAll('section');
             sections.forEach((section, index) => {
